@@ -14,6 +14,7 @@ import Root from './components/Root/Root.jsx'
 import StoreContext from './context/StoreContext.jsx'
 import Login from './pages/Login/Login.jsx'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
+import AddFoodForm from './pages/AddFoodForm.jsx'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/add",
+        element: <AddFoodForm />,
       },
     ],
   },
