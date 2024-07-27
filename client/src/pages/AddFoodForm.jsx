@@ -47,7 +47,7 @@ function AddFoodForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", gap: "15px"}}>
       <label htmlFor="name">Name:</label>
       <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
 
