@@ -46,12 +46,12 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AdminContext>
-    </AdminContext>
     <Toaster
       position="top-right"
       reverseOrder={false}
       />
   <RouterProvider router={router} />
       
+      </AdminContext>
     </React.StrictMode>,
 )

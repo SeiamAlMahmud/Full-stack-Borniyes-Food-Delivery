@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(cors())
 
 // DB Connection
-// connectDB()
+connectDB()
 
 //api endpoint
 app.use("/api/food", foodRouter)

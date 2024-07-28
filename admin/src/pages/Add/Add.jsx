@@ -1,7 +1,10 @@
-import React, {  useState } from 'react'
+import React, {  useContext, useState } from 'react'
 import "./Add.css"
 import { assets } from "../../assets/assets"
 import axios from "axios"
+import { adminContent } from '../../Context/AdminContext'
+import toast from 'react-hot-toast';
+
 const Add = () => {
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
@@ -10,6 +13,11 @@ const Add = () => {
     price: "",
     category: "Salad"
   })
+
+const {url} = useContext(adminContent)
+// console.log(url)
+
+
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -27,7 +35,21 @@ const Add = () => {
     formData.append("image", image)
     console.log(formData)
 
-    // const response = await axios()
+    const response = await axios.post(`${url}/add`,formData)
+    console.log(response)
+    if (response.data.success) {
+      toast("Successfully Added Items to Database")
+      setData({
+        name: "",
+        description: "",
+        price: "",
+        category: "Salad"
+      })
+      setImage(false)
+    }else{
+      toast(response.data.message)
+      
+    }
   }
  
   return (
