@@ -13,6 +13,7 @@ import Login from './pages/Login/Login.jsx';
 import Orders from './pages/Orders/Orders.jsx';
 import List from './pages/List/List.jsx';
 import Add from './pages/Add/Add.jsx';
+import AdminContext from './Context/AdminContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,10 +45,13 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AdminContext>
+    </AdminContext>
     <Toaster
       position="top-right"
       reverseOrder={false}
-    />
+      />
   <RouterProvider router={router} />
+      
     </React.StrictMode>,
 )

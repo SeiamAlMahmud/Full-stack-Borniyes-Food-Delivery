@@ -25,3 +25,18 @@ hr{
 .outlet{
     display: flex;
 }
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* Your other CSS styles */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

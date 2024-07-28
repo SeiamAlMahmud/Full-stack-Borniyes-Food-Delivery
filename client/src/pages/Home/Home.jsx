@@ -27,7 +27,7 @@ const Home = () => {
       setTimer(false)}
   }, [])
   return (
-    <div>
+    <div className='homepage_section'>
       {
         // !timer && count === 0  
         !food_list.length > 1  
