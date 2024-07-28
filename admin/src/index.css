@@ -22,3 +22,6 @@ hr{
 .app_content{
     display: flex;
 }
+.outlet{
+    display: flex;
+}
