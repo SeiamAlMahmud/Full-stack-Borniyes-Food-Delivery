@@ -51,7 +51,7 @@ const {url} = useContext(adminContent)
       
     }
   }
- 
+ document.title = "Add Page"
   return (
     <div className='add'>
       <form className="flex-col" onSubmit={onSubmitHandler}>
