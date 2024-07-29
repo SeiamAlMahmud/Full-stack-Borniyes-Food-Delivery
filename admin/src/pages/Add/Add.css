@@ -12,10 +12,14 @@
 }
 
 .add_img_upload img {
-
+    cursor: pointer;
     width: 120px;
+    transition: 0.3s;
 }
 
+.add_img_upload img:hover {
+    box-shadow:  10px 10px 15px rgba(222, 108, 157, 0.2);
+}
 .add_product_name,
 .add_product_description {
     width: max(40%, 280px);

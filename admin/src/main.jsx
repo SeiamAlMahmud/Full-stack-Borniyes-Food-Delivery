@@ -44,7 +44,7 @@ const router = createBrowserRouter([
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <AdminContext>
     <Toaster
       position="top-right"
@@ -53,5 +53,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
       
       </AdminContext>
-    </React.StrictMode>,
+    </>,
 )

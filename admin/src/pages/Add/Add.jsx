@@ -14,7 +14,7 @@ const Add = () => {
     category: "Salad"
   })
 
-const {url} = useContext(adminContent)
+const {url,fetchList} = useContext(adminContent)
 // console.log(url)
 
 
@@ -46,6 +46,7 @@ const {url} = useContext(adminContent)
         category: "Salad"
       })
       setImage(false)
+      fetchList()
     }else{
       toast(response.data.message)
       

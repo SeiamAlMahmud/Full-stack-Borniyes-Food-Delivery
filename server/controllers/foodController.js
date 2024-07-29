@@ -1,3 +1,4 @@
+import myCache from "../config/cache.js";
 import foodModel from "../models/foodModel.js";
 import fs from "fs"
 
@@ -28,8 +29,16 @@ const addFood = async (req, res) => {
 
 //all food List
 const listFood = async (req, res) => {
+    // const cacheKey = 'all_products';
+    // const cachedProducts = myCache.get(cacheKey);
+    // console.log(cachedProducts)
+//   if (cachedProducts) {
+//     return res.status(200).json({ success: true, data: cachedProducts })
+         
+//   }
     try {
         const foods = await foodModel.find({});
+        // myCache.set(cacheKey, foods, 600); // Cache for 10 minutes
         res.status(200).json({ success: true, data: foods })
     } catch (error) {
         console.log(error)
@@ -46,6 +55,8 @@ try {
     fs.unlink(`uploads/${food.image}`, ()=> {})
 
     await foodModel.findByIdAndDelete(req.body.id);
+    // const cacheKey = 'all_products';
+    // myCache.del(cacheKey);
     res.json({success: true, message: "Food Removed"})
 
 } catch (error) {
