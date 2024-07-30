@@ -27,7 +27,7 @@ const addFood = async (req, res) => {
 }
 
 
-//all food List
+//all food List for admin
 const listFood = async (req, res) => {
     // const cacheKey = 'all_products';
     // const cachedProducts = myCache.get(cacheKey);
@@ -48,6 +48,26 @@ const listFood = async (req, res) => {
 }
 
 
+//all food List for clientSide
+const allFoodList = async (req, res) => {
+    const cacheKey = 'all_products';
+    const cachedProducts = myCache.get(cacheKey);
+    console.log(cachedProducts)
+  if (cachedProducts) {
+    return res.status(200).json({ success: true, data: cachedProducts })
+         
+  }
+    try {
+        const foods = await foodModel.find({});
+        myCache.set(cacheKey, foods, 300); // Cache for 5 minutes
+        res.status(200).json({ success: true, data: foods })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: "Error" })
+
+    }
+}
+
 // remove food items
 const removeFood = async (req, res) => {
 try {
@@ -65,4 +85,4 @@ try {
 
 }
 }
-export { addFood, listFood, removeFood }
+export { addFood, listFood, removeFood, allFoodList }
