@@ -5,6 +5,7 @@ import Cart from './pages/Cart/Cart.jsx'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx'
 import './index.css'
 import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from 'react-hot-toast';
  
 import {
   createBrowserRouter,
@@ -54,6 +55,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <StoreContext>
     <Analytics />
+    <Toaster />
       <RouterProvider router={router} />
     </StoreContext>
   </React.StrictMode>,

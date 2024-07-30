@@ -4,6 +4,9 @@ export const foodStoreContext = createContext(null)
 const StoreContext = ({ children }) => {
     const [cartItems, setCartItems] = useState({})
     const [count, setCount] = useState(0)
+    const url = 'http://127.0.0.1:3000'
+    const [token, setToken] = useState("")
+
 
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
@@ -18,14 +21,14 @@ const StoreContext = ({ children }) => {
     const deleteFromCart = (itemId) => {
         // Create a copy of the cartItems state object
         const updatedCartItems = { ...cartItems };
-    
+
         // Remove the itemId key from the copied object
         delete updatedCartItems[itemId];
-    
+
         // Update the cartItems state with the modified object
         setCartItems(updatedCartItems);
     };
-    
+
 
     const getTotaCartAmmount = () => {
         let totalAmmount = 0;
@@ -38,9 +41,20 @@ const StoreContext = ({ children }) => {
         return totalAmmount
     }
 
-    const content = { food_list, cartItems, setCartItems, addToCart, removeFromCart, getTotaCartAmmount,count, setCount,deleteFromCart }
+    const content = {
+        food_list,
+        cartItems,
+        setCartItems,
+        addToCart,
+        removeFromCart,
+        getTotaCartAmmount,
+        count,
+        setCount,
+        deleteFromCart,
+        url,setToken
+    }
 
-    
+
     return (
         <foodStoreContext.Provider value={content}>
             {children}
