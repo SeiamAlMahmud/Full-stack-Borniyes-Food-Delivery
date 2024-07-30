@@ -41,6 +41,14 @@ const StoreContext = ({ children }) => {
         return totalAmmount
     }
 
+
+
+    useEffect(() => {
+        if(localStorage.getItem("token")){
+            setToken(localStorage.getItem("token"))
+        }
+    },[])
+
     const content = {
         food_list,
         cartItems,
@@ -51,7 +59,9 @@ const StoreContext = ({ children }) => {
         count,
         setCount,
         deleteFromCart,
-        url,setToken
+        url,
+        setToken,
+        token
     }
 
 

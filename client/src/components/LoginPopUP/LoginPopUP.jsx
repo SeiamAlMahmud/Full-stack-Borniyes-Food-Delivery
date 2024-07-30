@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 
 const LoginPopUP = ({ setShowLogin }) => {
     const [currState, setcurrentState] = useState("Login")
-    const { url , setToken } = useContext(foodStoreContext)
+    const { url , setToken,token } = useContext(foodStoreContext)
     const [data, setData] = useState({
 
         name: "",
@@ -45,9 +45,10 @@ const LoginPopUP = ({ setShowLogin }) => {
             toast.success("You are loging successfully")
         }else{
             toast.error(response.data.message)
-
+            
         }
     }
+    console.log(token)
     return (
         <div className='login-popup'>
             <form action='' onSubmit={onLogin} className="login-popup-container">
