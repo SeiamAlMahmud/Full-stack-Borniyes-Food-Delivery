@@ -12,7 +12,7 @@ const Cart = () => {
     setIsOpen(!isOpen);
     setImage(image)
   };
-  const { food_list, cartItems, removeFromCart, getTotaCartAmmount, deleteFromCart, addToCart } = useContext(foodStoreContext)
+  const { food_list, cartItems, removeFromCart, getTotaCartAmmount, deleteFromCart, addToCart,url } = useContext(foodStoreContext)
 
   const navigate = useNavigate()
 
@@ -24,7 +24,7 @@ const Cart = () => {
             <div className="popup-inner" onClick={(e) => e.stopPropagation()}>
               <button className="close-btn" onClick={togglePopup}></button>
               <img
-                src={image}
+                src={`${url}/images/${image}`}
                 alt="Sample"
                 className="popup-image"
               />
@@ -51,7 +51,7 @@ const Cart = () => {
                   <div key={idx}>
 
                     <div className="cart-items-title cart-items-item">
-                      <img src={item.image} className='cartImage' alt="" onClick={() => togglePopup(item.image)} />
+                      <img src={`${url}/images/${item.image}`} className='cartImage' alt="" onClick={() => togglePopup(item.image)} />
                       <p>{item.name} </p>
                       <p>$ {item.price}</p>
                       <div className="quantity">

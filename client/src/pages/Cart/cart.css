@@ -213,13 +213,16 @@
     max-width: 90%;
     max-height: 90%;
     overflow: auto;
-    transform: translate(0%, -50%);
+    transform: translate(0%, 0%);
 }
 
 .cartImage {
     cursor: pointer;
 }
 
+.popup-inner img{
+    width: 500px;
+}
 .close-btn {
     position: absolute;
     top: 10px;
@@ -238,7 +241,7 @@
 
 .popup-image {
     max-width: 100%;
-    max-height: 80vh;
+    max-height: 100vh;
     border-radius: 8px;
 }
 
