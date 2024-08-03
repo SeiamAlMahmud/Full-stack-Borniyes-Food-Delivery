@@ -24,6 +24,7 @@
     border-radius: 15px;
     font-size: 14px;
     animation: fade-in 0.7s;
+    transform: translate(0% , -50%);
 }
 .login-popup-title {
     display: flex;
