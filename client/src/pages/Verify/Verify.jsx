@@ -9,21 +9,26 @@ const Verify = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const success = searchParams.get("success")
   const orderId = searchParams.get("orderId")
-  const {url, token} = useContext(foodStoreContext)
+  const {url} = useContext(foodStoreContext)
   const navigate = useNavigate()
-
-  const verifyPayment = async (req,res) => {
-    const response = await axios.post(`${url}/api/order/verify`, {success,orderId}, {headers: {token}})
-
+  useEffect(()=>{
+    verifyPayment()
+  },[])
+  const data = {
+    success,
+    orderId
+  }
+  const verifyPayment = async () => {
+    const token =  localStorage.getItem("token")
+    const response = await axios.post(`${url}/api/order/verify`, data, {headers: {token}})
+    console.log(response)
     if (response.data.success) {
       navigate("/myorders")
     }else{
       navigate("/")
     }
   }
-useEffect(()=>{
-  verifyPayment()
-},[])
+
   return (
     <div className="verify">
       <div className="spinner"></div>

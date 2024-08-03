@@ -15,7 +15,7 @@ const Home = () => {
   const [category, setCategory] = useState("All")
   const [timer, setTimer] = useState(false)
   const {count, setCount,food_list} = useContext(foodStoreContext)
-  console.log(food_list.length)
+  // console.log(food_list.length)
 
   helix.register()
   useEffect(() => {
