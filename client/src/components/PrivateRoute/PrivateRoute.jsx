@@ -1,16 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { foodStoreContext } from '../../context/StoreContext'
+
 
 const PrivateRoute = ({ children }) => {
+    const { token } = useContext(foodStoreContext)
     const location = useLocation()
     const navigate = useNavigate()
-    useEffect(()=> {
-        // navigate('/login', {state: location.pathname})
-    },[])
+    // useEffect(() => {
+    //     if (!token) {
+    //         navigate('/login', {state: location.pathname})
+    //     }
+    // }, [token])
     // console.log(location)
+    
     return (
         <>
-            {children}
+          {
+            !token && children
+          }  
         </>
     )
 }

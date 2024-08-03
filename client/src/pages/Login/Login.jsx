@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 import img1 from '../../assets/pngegg.png'
 import { Helmet } from 'react-helmet';
 import SocialBox from '../../components/SocialBox/SocialBox';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
   const location = useLocation();
+  const navigate = useNavigate()
   const [isActive, setIsActive] = useState(false);
   const [userActive, setUserActive] = useState(false);
   const [Name, setName] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
   const [Lemail, setLemail] = useState("");
   const [Lpassword, setLpassWord] = useState("");
 
-
+console.log(location.state)
   return (
     <>
       <Helmet>

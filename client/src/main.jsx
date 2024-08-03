@@ -6,7 +6,10 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx'
 import './index.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from 'react-hot-toast';
- 
+import Verify from "./pages/Verify/Verify.jsx"
+
+
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,6 +19,7 @@ import StoreContext from './context/StoreContext.jsx'
 import Login from './pages/Login/Login.jsx'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 import AddFoodForm from './pages/AddFoodForm.jsx'
+import MyOrders from './pages/MyOrders/MyOrders.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,14 +33,16 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: (
-          <PrivateRoute>
             <Cart />
-          </PrivateRoute>
         ),
       },
       {
         path: "/order",
-        element: <PlaceOrder />,
+        element: (
+          <PrivateRoute>
+            <PlaceOrder />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -46,6 +52,20 @@ const router = createBrowserRouter([
         path: "/add",
         element: <AddFoodForm />,
       },
+      {
+        path: "/verify",
+        element: (<PrivateRoute>
+          <Verify />
+        </PrivateRoute>)
+      },
+      {
+        path: "/myorders",
+        element: (
+          <PrivateRoute>
+            <MyOrders />
+          </PrivateRoute>
+        )
+      }
     ],
   },
 ]);
@@ -54,8 +74,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <StoreContext>
-    <Analytics />
-    <Toaster />
+      <Analytics />
+      <Toaster />
       <RouterProvider router={router} />
     </StoreContext>
   </React.StrictMode>,
