@@ -9,6 +9,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+
 import './AnchorTemporaryDrawer.css'
 import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
@@ -29,6 +30,10 @@ export default function AnchorTemporaryDrawer() {
         {
             name: "Menu",
             path: "#explore-menu",
+            icon: <WidgetsIcon />
+        }, {
+            name: "My orders",
+            path: "/myorders",
             icon: <WidgetsIcon />
         },
         {
@@ -66,12 +71,12 @@ export default function AnchorTemporaryDrawer() {
                 {homeList.map((text, idx) => (
                     <ListItem key={idx} disablePadding>
                         <ListItemButton>
-                            <Link className='drawer-path' to={text.path}>
+                            <div onClick={()=> navigate(text.path)} className='drawer-path' >
                                 <ListItemIcon>
                                     {text.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={text.name} />
-                            </Link>
+                            </div>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -82,12 +87,12 @@ export default function AnchorTemporaryDrawer() {
                 {menuLists.map((text, idx) => (
                     <ListItem key={idx} disablePadding>
                         <ListItemButton>
-                            <a className='drawer-path' href={text.path}>
+                            <Link className='drawer-path' to={text.path}>
                                 <ListItemIcon>
                                     {text.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={text.name} />
-                            </a>
+                            </Link>
                         </ListItemButton>
                     </ListItem>
                 ))}

@@ -41,12 +41,12 @@
     font-size: max(1vw, 13px);
     border-radius: 50px;
     cursor: pointer;
-    transition: 0.3s linear;
+    /* transition: 0.3s linear; */
     border: 1px solid  #747474;
     /* position: relative; */
 }
 .header-contents button:hover{
-    transform: translateY(-4px);
+    transform: translate(4px, -5px);
     scale: 1.01;
     
 }

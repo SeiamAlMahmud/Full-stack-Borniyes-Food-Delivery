@@ -4,7 +4,10 @@ import { foodStoreContext } from '../../context/StoreContext'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useNavigate } from 'react-router-dom';
+
 const Cart = () => {
+  // title
+  document.title = 'Cart || Borniyes Food '
   const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState(null);
 

@@ -12,6 +12,8 @@ import PatientReducer from '../PatientReducer/PatientReducer'
 // Default values shown
 
 const Home = () => {
+   // title
+  document.title = 'Borniyes Food '
   const [category, setCategory] = useState("All")
   const [timer, setTimer] = useState(false)
   const {count, setCount,food_list} = useContext(foodStoreContext)
