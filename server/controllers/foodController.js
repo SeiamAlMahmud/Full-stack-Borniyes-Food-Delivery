@@ -6,7 +6,7 @@ import fs from "fs"
 
 const addFood = async (req, res) => {
     let image_filename = `${req.file.filename}`;
-    console.log(req.body)
+    // console.log(req.body)
     try {
         const food = new foodModel({
             name: req.body.name,
@@ -52,7 +52,7 @@ const listFood = async (req, res) => {
 const allFoodList = async (req, res) => {
     const cacheKey = 'all_products';
     const cachedProducts = myCache.get(cacheKey);
-    console.log(cachedProducts)
+    // console.log(cachedProducts)
   if (cachedProducts) {
     return res.status(200).json({ success: true, data: cachedProducts })
          

@@ -75,7 +75,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <StoreContext>
       <Analytics />
-      <Toaster />
+      <Toaster ali />
       <RouterProvider router={router} />
     </StoreContext>
   </React.StrictMode>,

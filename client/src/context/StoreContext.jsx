@@ -33,15 +33,21 @@ const StoreContext = ({ children }) => {
             await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } })
         }
     }
-    const deleteFromCart = (itemId) => {
+    const deleteFromCart =async (itemId) => {
         // Create a copy of the cartItems state object
         const updatedCartItems = { ...cartItems };
-
         // Remove the itemId key from the copied object
         delete updatedCartItems[itemId];
-
         // Update the cartItems state with the modified object
         setCartItems(updatedCartItems);
+   
+        if (token) {
+          const response = await axios.post(`${url}/api/cart/delete` , {itemId}, {headers: {token}})
+            // console.log(response)
+            if (response.data.success) {
+                toast.success(response.data.message)
+            }
+        }
     };
 
 
