@@ -1,5 +1,6 @@
 import orderModel from "../models/orderModel.js"
 import userModel from "../models/userModel.js"
+import myCache from "../config/cache.js";
 import Stripe from "stripe"
 
 
@@ -101,4 +102,24 @@ const userOrders = async (req, res) => {
     }
 }
 
-export { placeOrder, verifyOrder, userOrders }
+// Listing orders for panel 
+const listOrders = async (req, res) => {
+    try {
+        const cacheKey = 'all_products';
+        const cachedProducts = myCache.get(cacheKey);
+        // console.log(cachedProducts)
+      if (cachedProducts) {
+        return res.status(200).json({ success: true, data: cachedProducts })
+      }
+
+        const orders = await orderModel.find({});
+        myCache.set(cacheKey, orders, 120); // Cache for 2 minutes
+        res.json({success: true, data: orders})
+    } catch (error) {
+        console.log(error)
+        res.json({success: false, message: "Faild to fetch"})
+
+    }
+}
+
+export { placeOrder, verifyOrder, userOrders, listOrders }

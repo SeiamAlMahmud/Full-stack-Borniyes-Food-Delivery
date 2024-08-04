@@ -29,13 +29,7 @@ const addFood = async (req, res) => {
 
 //all food List for admin
 const listFood = async (req, res) => {
-    // const cacheKey = 'all_products';
-    // const cachedProducts = myCache.get(cacheKey);
-    // console.log(cachedProducts)
-//   if (cachedProducts) {
-//     return res.status(200).json({ success: true, data: cachedProducts })
-         
-//   }
+   
     try {
         const foods = await foodModel.find({});
         // myCache.set(cacheKey, foods, 600); // Cache for 10 minutes
@@ -55,7 +49,6 @@ const allFoodList = async (req, res) => {
     // console.log(cachedProducts)
   if (cachedProducts) {
     return res.status(200).json({ success: true, data: cachedProducts })
-         
   }
     try {
         const foods = await foodModel.find({});
