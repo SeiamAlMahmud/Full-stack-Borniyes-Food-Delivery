@@ -5,12 +5,12 @@ export const adminContent = createContext(null)
 const AdminContext = ({children}) => {
   const [list, setList] = useState([])
 
-const url = 'http://127.0.0.1:3000/api/food'
+const url = 'http://127.0.0.1:3000'
 const imgUrl = 'http://127.0.0.1:3000/images'
 
 
 const fetchList = async () => {
-  const response = await axios.get(`${url}/list`);
+  const response = await axios.get(`${url}/api/food/list`);
   console.log(response.data)
   if (response.data.success) {
     toast.success("List Items is Fetching successfully")
@@ -26,7 +26,7 @@ useEffect(() => {
 }, [])
 
 const removeFoodItems = async (foodId) => {
-  const response = await axios.post(`${url}/remove`, {id: foodId});
+  const response = await axios.post(`${url}/api/food/remove`, {id: foodId});
   if (response.data.success) {
     fetchList();
     toast.success(response.data?.message)

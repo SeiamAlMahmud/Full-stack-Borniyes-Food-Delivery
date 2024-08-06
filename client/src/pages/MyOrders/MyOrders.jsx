@@ -39,7 +39,7 @@ const MyOrders = () => {
                                 <p>${orders.amount}.00</p>
                                 <p>Items: {orders.items.length}</p>
                                 <p><span>&#x25cf;</span> <b>{orders.status}</b></p>
-                                <button>Track Order</button>
+                                <button onClick={fetchOrders}>Track Order</button>
                             </div>
                         )
                     })

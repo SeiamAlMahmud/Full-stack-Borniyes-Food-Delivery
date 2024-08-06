@@ -54,9 +54,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/verify",
-        element: (<PrivateRoute>
+        element: (
           <Verify />
-        </PrivateRoute>)
+        )
       },
       {
         path: "/myorders",

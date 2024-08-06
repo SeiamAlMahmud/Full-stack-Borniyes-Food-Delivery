@@ -35,7 +35,7 @@ const {url,fetchList} = useContext(adminContent)
     formData.append("image", image)
     console.log(formData)
 
-    const response = await axios.post(`${url}/add`,formData)
+    const response = await axios.post(`${url}/api/food/add`,formData)
     console.log(response)
     if (response.data.success) {
       toast("Successfully Added Items to Database")
